@@ -235,7 +235,7 @@ test.afterEach(async ({ request, testUser }) => {
   await shopHomePage.subscribeEmailFooter(user.email);
  });
 
-  test.only('TC-010', async ({ authenticatedShopPage, testUser }) => {
+  test('TC-010', async ({ authenticatedShopPage, testUser }) => {
     await epic('Auth'),
     await feature('Session'),
     await story('Redirect logged-in user'),
