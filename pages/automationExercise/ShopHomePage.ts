@@ -11,7 +11,7 @@ export class ShopHomePage {
 
     constructor (readonly page: Page){
         this.signUpLoginNavLink = page.getByRole('link', { name: 'Signup / Login' });
-        this.cookieConsent = page.locator('.fc-button-label', { hasText: 'Consent' });
+        this.cookieConsent = page.locator('button.fc-cta-consent[aria-label="Consent"]');
         this.productsPageNavLink = page.getByRole('link', { name: ' Products' });
         this.footerSubscription = page.getByPlaceholder('Your email address');
         this.sendSubscriptionButton = page.locator('#subscribe');
@@ -27,9 +27,13 @@ export class ShopHomePage {
     }
 
     async goto() {
-        await this.page.goto('/');
-        await this.cookieConsent.click()
+    await this.page.goto('/');
+
+    try {
+      await this.cookieConsent.click({ timeout: 5000 });
+    } catch {
     }
+  }
 
     async gotoLogin(){
         await this.signUpLoginNavLink.click();
@@ -53,5 +57,7 @@ export class ShopHomePage {
         await expect(this.successEmailMessage).toContainText('You have been successfully subscribed!');
         await expect(this.footerSubscription).toBeEmpty();
     }
+
+    async 
 
 }
