@@ -36,6 +36,7 @@ export class ShopHomePage {
   }
 
     async gotoLogin(){
+        await this.signUpLoginNavLink.waitFor({ state: 'visible' });
         await this.signUpLoginNavLink.click();
     }
 
@@ -57,7 +58,5 @@ export class ShopHomePage {
         await expect(this.successEmailMessage).toContainText('You have been successfully subscribed!');
         await expect(this.footerSubscription).toBeEmpty();
     }
-
-    async 
 
 }
