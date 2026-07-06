@@ -138,7 +138,7 @@ npx allure open allure-report
 cd Downloads
 cd allure-report
 npx serve .
----
+```
 
 ## GitHub Actions
 
