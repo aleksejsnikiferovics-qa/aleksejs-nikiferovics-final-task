@@ -132,6 +132,12 @@ npx allure generate allure-results --clean -o allure-report
 npx allure open allure-report
 ```
 
+### Open Allure report locally
+
+```Terminal
+cd Downloads
+cd allure-report
+npx serve .
 ---
 
 ## GitHub Actions
